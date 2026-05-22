@@ -873,7 +873,7 @@ footer {
     .mobile-toggle {
         display: flex;
     }
-    
+
     .nav-menu {
         display: none;
         flex-direction: column;
@@ -887,21 +887,58 @@ footer {
         border-top: 2px solid var(--primary-light);
         gap: 15px;
     }
-    
+
     .nav-menu.show {
         display: flex;
     }
-    
+
     .nav-menu li, .nav-menu .cta-btn {
         width: 100%;
         text-align: center;
     }
-    
+
     .calc-grid {
         grid-template-cols: 1fr;
     }
-    
+
     .footer-grid {
         grid-template-cols: 1fr;
     }
+
+    /* Section padding smaller on mobile */
+    .section {
+        padding: 50px 0;
+    }
+
+    /* Booking form box padding smaller */
+    .booking-form-box {
+        padding: 25px 18px;
+    }
+
+    .booking-form-box h3 {
+        font-size: 1.5rem;
+    }
+
+    /* Success box on mobile */
+    .success-box {
+        margin: 30px auto;
+        padding: 30px 18px;
+    }
+
+    /* Section header */
+    .section-header h2 {
+        font-size: 1.8rem;
+    }
 }
+
+/* Extra small phones */
+@media (max-width: 400px) {
+    .booking-form-box {
+        padding: 18px 12px;
+    }
+
+    .section-header h2 {
+        font-size: 1.5rem;
+    }
+}
+

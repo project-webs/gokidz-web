@@ -133,6 +133,9 @@
                 grid-template-columns: 1fr;
                 gap: 2px;
             }
+            .term-title {
+                margin-bottom: 2px;
+            }
         }
 
         /* Custom Tables */
@@ -284,6 +287,9 @@
             line-height: 1.5;
         }
 
+        /* ===== RESPONSIVE ===== */
+
+        /* Tablet: stack two columns vertically */
         @media (max-width: 992px) {
             .register-layout {
                 grid-template-columns: 1fr;
@@ -292,6 +298,61 @@
 
             .tab-content {
                 max-height: none;
+                padding: 20px;
+            }
+
+            .terms-header {
+                padding: 20px;
+            }
+
+            .terms-header h3 {
+                font-size: 1.3rem;
+            }
+
+            /* Scrollable tables on tablet */
+            .terms-table {
+                display: block;
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+                white-space: nowrap;
+            }
+        }
+
+        /* Mobile phones */
+        @media (max-width: 600px) {
+            /* Tab buttons smaller on mobile */
+            .tab-btn {
+                padding: 10px 4px;
+                font-size: 0.78rem;
+            }
+
+            /* Inline child name + class grid -> single column */
+            .child-name-class-grid {
+                grid-template-columns: 1fr !important;
+            }
+
+            /* Gender radio cards -> single column */
+            .custom-radio-group {
+                grid-template-columns: 1fr;
+            }
+
+            /* Section badge & header padding */
+            .section-header p {
+                font-size: 0.9rem;
+            }
+
+            /* Reduce box padding */
+            .booking-form-box {
+                padding: 20px 15px;
+            }
+
+            .terms-table {
+                font-size: 0.8rem;
+            }
+
+            .terms-table th,
+            .terms-table td {
+                padding: 7px 9px;
             }
         }
     </style>
@@ -563,7 +624,7 @@
                                 placeholder="Contoh: 0812XXXXXXXX (wajib WhatsApp aktif)" required>
                         </div>
 
-                        <div style="display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 20px; margin-bottom: 20px;">
+                        <div class="child-name-class-grid" style="display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 20px; margin-bottom: 20px;">
                             <div class="form-group">
                                 <label for="child_name">Nama Lengkap Siswa *</label>
                                 <input type="text" id="child_name" name="child_name" value="{{ old('child_name') }}"
