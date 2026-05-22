@@ -25,7 +25,7 @@
                         <li>Driver berlisensi profesional</li>
                         <li>Armada ber-AC & bersih</li>
                     </ul>
-                    <a href="{{ route('kontak') }}" class="cta-btn" style="text-align: center; margin-top: auto">Pilih Paket</a>
+                    <a href="{{ route('pendaftaran') }}" class="cta-btn" style="text-align: center; margin-top: auto">Pilih Paket</a>
                 </div>
 
                 <!-- Paket Bulanan (Dekat) -->
@@ -40,7 +40,7 @@
                         <li>Driver berpengalaman</li>
                         <li>Jaminan Keterlambatan</li>
                     </ul>
-                    <a href="{{ route('kontak') }}" class="cta-btn" style="text-align: center; margin-top: auto">Pilih Paket</a>
+                    <a href="{{ route('pendaftaran') }}" class="cta-btn" style="text-align: center; margin-top: auto">Pilih Paket</a>
                 </div>
 
                 <!-- Paket Bulanan (Jauh) -->
@@ -54,7 +54,7 @@
                         <li>Notifikasi real-time via Gokidz apps</li>
                         <li>Driver berpengalaman</li>
                     </ul>
-                    <a href="{{ route('kontak') }}" class="cta-btn" style="text-align: center; margin-top: auto">Pilih Paket</a>
+                    <a href="{{ route('pendaftaran') }}" class="cta-btn" style="text-align: center; margin-top: auto">Pilih Paket</a>
                 </div>
             </div>
 
@@ -89,7 +89,7 @@
                 </div>
                 
                 <div style="text-align: center; margin-top: 25px">
-                    <a href="{{ route('kontak') }}" class="cta-btn">Daftar Sekarang & Kunci Rute Anda</a>
+                    <a href="{{ route('pendaftaran') }}" class="cta-btn">Daftar Sekarang & Kunci Rute Anda</a>
                 </div>
             </div>
         </div>

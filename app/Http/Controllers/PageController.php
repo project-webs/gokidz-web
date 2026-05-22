@@ -28,6 +28,24 @@ class PageController extends Controller
         return view('pages.kontak');
     }
 
+    public function kontakStore(Request $request)
+    {
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|email|max:255',
+            'phone' => 'required|string|max:255',
+            'subject' => 'required|string|max:255',
+            'message' => 'required|string',
+        ]);
+
+        return redirect()->back()->with('success', 'Pesan Anda berhasil dikirim! Tim Gokidz akan segera menghubungi Anda melalui WhatsApp atau Email.');
+    }
+
+    public function pendaftaran()
+    {
+        return view('pages.pendaftaran');
+    }
+
     public function adminBookings()
     {
         $bookings = Booking::latest()->get();

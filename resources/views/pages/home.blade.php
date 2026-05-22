@@ -13,7 +13,7 @@
                     <h1>Antar Jemput Sekolah <span>Aman, Nyaman & Ceria!</span></h1>
                     <p>Gokidz memberikan ketenangan pikiran bagi Orang Tua dengan layanan jemput anak sekolah yang aman dan terpantau real-time. Perjalanan jadi seru dan menyenangkan bagi anak-anak!</p>
                     <div class="hero-buttons">
-                        <a href="{{ route('kontak') }}" class="cta-btn">Daftar Sekarang</a>
+                        <a href="{{ route('pendaftaran') }}" class="cta-btn">Daftar Sekarang</a>
                         <a href="{{ route('layanan') }}" class="btn-secondary">Lihat Layanan & Tarif</a>
                     </div>
                 </div>

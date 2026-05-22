@@ -103,7 +103,7 @@ header {
 .nav-menu {
     display: flex;
     align-items: center;
-    gap: 30px;
+    gap: 20px;
     list-style: none;
 }
 
@@ -114,6 +114,10 @@ header {
     position: relative;
     padding: 8px 12px;
     border-radius: var(--radius-sm);
+    white-space: nowrap;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
 }
 
 .nav-link:hover, .nav-link.active {

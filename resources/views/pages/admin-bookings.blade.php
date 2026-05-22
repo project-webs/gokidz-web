@@ -10,9 +10,9 @@
                 <div>
                     <span class="section-badge">📊 Data Internal</span>
                     <h2>Daftar Pendaftaran Calon Siswa</h2>
-                    <p>Halaman ini menampilkan seluruh data pendaftaran yang tersimpan di dalam database SQLite.</p>
+                    <p>Halaman ini menampilkan seluruh data pendaftaran yang tersimpan di dalam database.</p>
                 </div>
-                <a href="{{ route('kontak') }}" class="cta-btn">+ Tambah Pendaftaran</a>
+                <a href="{{ route('pendaftaran') }}" class="cta-btn">+ Tambah Pendaftaran</a>
             </div>
 
             @if(session('success'))
@@ -28,7 +28,7 @@
                     <p style="color: var(--text-muted); margin-bottom: 30px; max-width: 500px; margin-left: auto; margin-right: auto;">
                         Belum ada orang tua murid yang mengisi formulir registrasi. Silakan coba mendaftar terlebih dahulu di halaman Hubungi Kami.
                     </p>
-                    <a href="{{ route('kontak') }}" class="cta-btn">Mulai Uji Coba Pendaftaran</a>
+                    <a href="{{ route('pendaftaran') }}" class="cta-btn">Mulai Uji Coba Pendaftaran</a>
                 </div>
             @else
                 <div class="table-wrapper">
@@ -37,8 +37,8 @@
                             <tr>
                                 <th>Tanggal</th>
                                 <th>Orang Tua</th>
-                                <th>Anak (Umur)</th>
-                                <th>Sekolah</th>
+                                <th>Siswa (Kelas/Gender)</th>
+                                <th>Ekskul / Catatan</th>
                                 <th>Alamat Jemput</th>
                                 <th>Layanan</th>
                                 <th>Status</th>
@@ -57,10 +57,29 @@
                                         <span style="color: var(--text-muted); font-size: 0.85rem">{{ $booking->parent_phone }}</span>
                                     </td>
                                     <td>
-                                        <strong>{{ $booking->child_name }}</strong><br>
-                                        <span style="color: var(--text-muted); font-size: 0.85rem">{{ $booking->child_age }} tahun</span>
+                                        <strong>{{ $booking->child_name }}</strong>
+                                        @if($booking->child_gender)
+                                            <span style="font-size: 0.8rem; font-weight: 700; color: var(--secondary); background: var(--secondary-light); padding: 2px 6px; border-radius: 4px; margin-left: 4px;">
+                                                {{ $booking->child_gender == 'Laki-laki' ? 'L' : 'P' }}
+                                            </span>
+                                        @endif
+                                        <br>
+                                        @if($booking->child_class)
+                                            <span style="color: var(--text-muted); font-size: 0.85rem">Kelas: {{ $booking->child_class }}</span>
+                                        @elseif($booking->child_age)
+                                            <span style="color: var(--text-muted); font-size: 0.85rem">{{ $booking->child_age }} tahun</span>
+                                        @endif
                                     </td>
-                                    <td>{{ $booking->school_name }}</td>
+                                    <td>
+                                        @if($booking->extracurricular)
+                                            <div style="font-size: 0.85rem; max-width: 180px; word-wrap: break-word;">{{ $booking->extracurricular }}</div>
+                                        @else
+                                            <span style="color: var(--text-muted); font-size: 0.85rem">-</span>
+                                        @endif
+                                        @if($booking->school_name && $booking->school_name != 'SDI Abu Dzar')
+                                            <div style="font-size: 0.75rem; color: var(--text-muted); margin-top: 4px;">({{ $booking->school_name }})</div>
+                                        @endif
+                                    </td>
                                     <td style="max-width: 250px; font-size: 0.85rem; color: var(--text-muted)">
                                         {{ $booking->pickup_address }}
                                     </td>

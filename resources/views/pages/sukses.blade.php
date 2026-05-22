@@ -15,7 +15,12 @@
                 
                 <div class="success-summary-item">
                     <span>Nama Anak:</span>
-                    <span>{{ session('child_name') }}</span>
+                    <span>{{ session('child_name') }} ({{ session('child_gender') }})</span>
+                </div>
+
+                <div class="success-summary-item">
+                    <span>Kelas:</span>
+                    <span>Kelas {{ session('child_class') }}</span>
                 </div>
                 
                 <div class="success-summary-item">
@@ -36,6 +41,13 @@
                     </span>
                 </div>
 
+                @if(session('extracurricular'))
+                <div class="success-summary-item">
+                    <span>Kegiatan Ekskul:</span>
+                    <span>{{ session('extracurricular') }}</span>
+                </div>
+                @endif
+
                 <div class="success-summary-item">
                     <span>Status Awal:</span>
                     <span style="color: var(--primary)">Menunggu Verifikasi Rute</span>
@@ -46,7 +58,7 @@
             
             <div style="display: flex; gap: 15px; justify-content: center;">
                 <a href="{{ route('home') }}" class="btn-secondary">Kembali ke Beranda</a>
-                <a href="https://wa.me/6287887654321?text=Halo%20Gokidz!%20Saya%20baru%20saja%20mendaftar%20antar%20jemput%20untuk%20anak%20saya%20{{ urlencode(session('child_name')) }}." target="_blank" class="cta-btn" style="background-color: var(--accent-green)">
+                <a href="https://wa.me/6287887654321?text=Halo%20Gokidz!%20Saya%20baru%20saja%20mendaftar%20antar%20jemput%20SDI%20Abu%20Dzar%20untuk%20anak%20saya%20{{ urlencode(session('child_name')) }}%20(Kelas%20{{ urlencode(session('child_class')) }})." target="_blank" class="cta-btn" style="background-color: var(--accent-green)">
                     Hubungi via WhatsApp 💬
                 </a>
             </div>

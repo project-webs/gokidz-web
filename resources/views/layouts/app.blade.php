@@ -40,13 +40,25 @@
                     <li>
                         <a href="{{ route('kontak') }}" class="nav-link {{ Route::is('kontak') ? 'active' : '' }}">Hubungi Kami</a>
                     </li>
+                    @auth
+                        <li>
+                            <a href="{{ route('admin.bookings') }}" class="nav-link {{ Route::is('admin.bookings') ? 'active' : '' }}" style="border: 2px dashed var(--secondary); border-radius: var(--radius-sm); color: var(--secondary)">
+                                📊 Admin View
+                            </a>
+                        </li>
+                        <li>
+                            <form action="{{ route('logout') }}" method="POST" style="display: inline;">
+                                @csrf
+                                <button type="submit" class="nav-link" style="background: transparent; border: none; font-weight: 700; cursor: pointer; font-family: inherit; font-size: 1.05rem; display: inline-flex; align-items: center; width: auto;">Logout</button>
+                            </form>
+                        </li>
+                    @else
+                        <li>
+                            <a href="{{ route('login') }}" class="nav-link {{ Route::is('login') ? 'active' : '' }}">Login</a>
+                        </li>
+                    @endauth
                     <li>
-                        <a href="{{ route('admin.bookings') }}" class="nav-link {{ Route::is('admin.bookings') ? 'active' : '' }}" style="border: 2px dashed var(--secondary); border-radius: var(--radius-sm); color: var(--secondary)">
-                            📊 Admin View
-                        </a>
-                    </li>
-                    <li>
-                        <a href="{{ route('kontak') }}" class="cta-btn">Daftar Sekarang</a>
+                        <a href="{{ route('pendaftaran') }}" class="cta-btn">Daftar Sekarang</a>
                     </li>
                 </ul>
             </div>

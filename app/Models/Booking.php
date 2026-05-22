@@ -10,10 +10,13 @@ class Booking extends Model
         'parent_name',
         'parent_phone',
         'child_name',
+        'child_class',
+        'child_gender',
         'child_age',
         'school_name',
         'pickup_address',
         'shuttle_type',
+        'extracurricular',
         'status',
     ];
 }
