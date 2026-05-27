@@ -44,4 +44,11 @@ class BookingController extends Controller
         }
         return view('pages.sukses');
     }
+
+    public function markAsDone(Booking $booking)
+    {
+        \Log::info('markAsDone triggered for booking ID: ' . $booking->id);
+        $booking->update(['status' => 'done']);
+        return redirect()->back()->with('success', 'Status pendaftaran berhasil diubah menjadi Selesai.');
+    }
 }

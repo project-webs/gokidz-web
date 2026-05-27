@@ -21,3 +21,4 @@ Route::post('/booking', [BookingController::class, 'store'])->name('booking.stor
 Route::get('/booking/sukses', [BookingController::class, 'sukses'])->name('booking.sukses');
 
 Route::get('/admin/bookings', [PageController::class, 'adminBookings'])->name('admin.bookings')->middleware('auth');
+Route::patch('/admin/bookings/{booking}/done', [BookingController::class, 'markAsDone'])->name('admin.bookings.done')->middleware('auth');

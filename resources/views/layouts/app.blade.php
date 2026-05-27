@@ -42,14 +42,12 @@
                     </li>
                     @auth
                         <li>
-                            <a href="{{ route('admin.bookings') }}" class="nav-link {{ Route::is('admin.bookings') ? 'active' : '' }}" style="border: 2px dashed var(--secondary); border-radius: var(--radius-sm); color: var(--secondary)">
-                                📊 Admin View
-                            </a>
+                            <a href="{{ route('admin.bookings') }}" class="nav-link {{ Route::is('admin.bookings') ? 'active' : '' }}">Admin View</a>
                         </li>
                         <li>
                             <form action="{{ route('logout') }}" method="POST" style="display: inline;">
                                 @csrf
-                                <button type="submit" class="nav-link" style="background: transparent; border: none; font-weight: 700; cursor: pointer; font-family: inherit; font-size: 1.05rem; display: inline-flex; align-items: center; width: auto;">Logout</button>
+                                <button type="submit" class="nav-link" style="background: transparent; border: none; cursor: pointer; font-family: inherit;">Logout</button>
                             </form>
                         </li>
                     @else

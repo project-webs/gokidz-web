@@ -94,13 +94,30 @@
                                     </td>
                                     <td>
                                         <span class="status-badge {{ $booking->status }}">
-                                            {{ $booking->status == 'pending' ? 'Tertunda' : $booking->status }}
+                                            @if($booking->status == 'pending')
+                                                Tertunda
+                                            @elseif($booking->status == 'done')
+                                                Selesai
+                                            @else
+                                                {{ ucfirst($booking->status) }}
+                                            @endif
                                         </span>
                                     </td>
                                     <td>
-                                        <a href="https://wa.me/{{ preg_replace('/[^0-9]/', '', $booking->parent_phone) }}?text=Halo%20{{ urlencode($booking->parent_name) }},%20kami%20dari%20Gokidz%20ingin%20mengonfirmasi%20rute%20antar%20jemput%20untuk%20anak%20Anda%20{{ urlencode($booking->child_name) }}." target="_blank" class="cta-btn" style="padding: 6px 14px; font-size: 0.85rem; background-color: var(--accent-green); box-shadow: none">
-                                            Hubungi WA
-                                        </a>
+                                        <div style="display: flex; gap: 8px;">
+                                            <a href="https://wa.me/{{ preg_replace('/[^0-9]/', '', $booking->parent_phone) }}?text=Halo%20{{ urlencode($booking->parent_name) }},%20kami%20dari%20Gokidz%20ingin%20mengonfirmasi%20rute%20antar%20jemput%20untuk%20anak%20Anda%20{{ urlencode($booking->child_name) }}." target="_blank" class="cta-btn" style="padding: 6px 14px; font-size: 0.85rem; background-color: var(--accent-green); box-shadow: none">
+                                                Hubungi WA
+                                            </a>
+                                            @if($booking->status == 'pending')
+                                                <form action="{{ route('admin.bookings.done', $booking->id) }}" method="POST" style="display: inline;">
+                                                    @csrf
+                                                    @method('PATCH')
+                                                    <button type="submit" class="cta-btn" style="padding: 6px 14px; font-size: 0.85rem; background-color: var(--secondary); box-shadow: none">
+                                                        Selesai
+                                                    </button>
+                                                </form>
+                                            @endif
+                                        </div>
                                     </td>
                                 </tr>
                             @endforeach

@@ -776,6 +776,11 @@ header {
     color: var(--accent-green);
 }
 
+.status-badge.done {
+    background: var(--secondary-light);
+    color: var(--secondary);
+}
+
 /* Footer styling */
 footer {
     background: #0F172A;
